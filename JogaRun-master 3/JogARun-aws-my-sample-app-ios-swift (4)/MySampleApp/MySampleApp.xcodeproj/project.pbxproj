@@ -23,6 +23,8 @@
 		C9040A601EAD7DF200D95463 /* Shoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9040A5F1EAD7DF200D95463 /* Shoes.swift */; };
 		C9040A621EAD7E1500D95463 /* TextInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9040A611EAD7E1500D95463 /* TextInputTableViewCell.swift */; };
 		C91B0B751E9C4E5A00623683 /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91B0B741E9C4E5A00623683 /* CustomCollectionCell.swift */; };
+		C93C14091EE9A73B007233F8 /* CreatedEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93C14081EE9A73B007233F8 /* CreatedEvents.swift */; };
+		C93C140B1EE9BAC6007233F8 /* MyEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C93C140A1EE9BAC6007233F8 /* MyEventCell.swift */; };
 		C9759D9C1E9D1B9700BCE08F /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9759D9B1E9D1B9700BCE08F /* CustomTableCell.swift */; };
 		C9759DA01E9D21F200BCE08F /* ViewIndivLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9759D9F1E9D21F200BCE08F /* ViewIndivLog.swift */; };
 		C9BFEC831EE8D53C0094F64C /* EventsMcLean.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BFEC7D1EE8D53C0094F64C /* EventsMcLean.swift */; };
@@ -165,6 +167,8 @@
 		C9040A5F1EAD7DF200D95463 /* Shoes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Shoes.swift; path = MySampleApp/AmazonAws/Models/NoSQL/Shoes.swift; sourceTree = SOURCE_ROOT; };
 		C9040A611EAD7E1500D95463 /* TextInputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextInputTableViewCell.swift; path = MySampleApp/Demo/NoSQL/TextInputTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		C91B0B741E9C4E5A00623683 /* CustomCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = SOURCE_ROOT; };
+		C93C14081EE9A73B007233F8 /* CreatedEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatedEvents.swift; sourceTree = SOURCE_ROOT; };
+		C93C140A1EE9BAC6007233F8 /* MyEventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyEventCell.swift; sourceTree = SOURCE_ROOT; };
 		C9759D9B1E9D1B9700BCE08F /* CustomTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableCell.swift; sourceTree = SOURCE_ROOT; };
 		C9759D9F1E9D21F200BCE08F /* ViewIndivLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewIndivLog.swift; sourceTree = SOURCE_ROOT; };
 		C9BFEC7D1EE8D53C0094F64C /* EventsMcLean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsMcLean.swift; path = MySampleApp/AmazonAws/Models/NoSQL/EventsMcLean.swift; sourceTree = SOURCE_ROOT; };
@@ -214,6 +218,7 @@
 				AB1A20E91EAAA4C200F72BC7 /* ViewTeam.swift */,
 				AB1A20E71EAAA48100F72BC7 /* ViewTeam.storyboard */,
 				C9BFEC911EE915C30094F64C /* UserEventCell.swift */,
+				C93C140A1EE9BAC6007233F8 /* MyEventCell.swift */,
 			);
 			name = Teams;
 			sourceTree = "<group>";
@@ -423,6 +428,7 @@
 				C9BFEC8B1EE8E11D0094F64C /* Events.swift */,
 				C9BFEC8D1EE90D180094F64C /* Table.swift */,
 				C9BFEC8F1EE90E980094F64C /* SignUp.swift */,
+				C93C14081EE9A73B007233F8 /* CreatedEvents.swift */,
 			);
 			name = NoSQL;
 			path = mysampleapp/amazonaws/models/nosql;
@@ -561,7 +567,9 @@
 				C9040A621EAD7E1500D95463 /* TextInputTableViewCell.swift in Sources */,
 				ABA856601EA2AA310007B3BB /* UserSearch.swift in Sources */,
 				E7A30F0449D4FA4600000000 /* UserPoolSignUpConfirmationViewController.swift in Sources */,
+				C93C14091EE9A73B007233F8 /* CreatedEvents.swift in Sources */,
 				E7A30F04026F651800000000 /* NoSQLTableListViewController.swift in Sources */,
+				C93C140B1EE9BAC6007233F8 /* MyEventCell.swift in Sources */,
 				C9BFEC8C1EE8E11D0094F64C /* Events.swift in Sources */,
 				C9BFEC901EE90E980094F64C /* SignUp.swift in Sources */,
 				C91B0B751E9C4E5A00623683 /* CustomCollectionCell.swift in Sources */,

@@ -18,6 +18,8 @@ class CustomTableCell: UITableViewCell {
     @IBOutlet weak var startTime: UILabel!
     @IBOutlet weak var endTime: UILabel!
     @IBOutlet weak var notes: UITextView!
+    
+    @IBOutlet weak var name: UILabel!
    
     
 }

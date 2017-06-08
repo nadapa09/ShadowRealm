@@ -201,7 +201,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aUI-Av-3r5">
-                                                    <rect key="frame" x="4" y="144" width="343" height="79"/>
+                                                    <rect key="frame" x="4" y="166" width="343" height="57"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -243,6 +243,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBG-v4-Qkf">
+                                                    <rect key="frame" x="8" y="144" width="327" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -250,6 +257,7 @@
                                             <outlet property="endTime" destination="AAl-Ls-GG7" id="g1h-zS-2nb"/>
                                             <outlet property="location" destination="tXd-Uc-x2j" id="Mz7-yd-iWw"/>
                                             <outlet property="meetingPlace" destination="vqz-qF-aUX" id="JBQ-CQ-7Bi"/>
+                                            <outlet property="name" destination="qBG-v4-Qkf" id="Q8S-OG-U48"/>
                                             <outlet property="notes" destination="aUI-Av-3r5" id="lka-gU-VBG"/>
                                             <outlet property="role" destination="RAw-Km-rSo" id="qU5-Ld-3I1"/>
                                             <outlet property="startTime" destination="37g-j8-kd1" id="gGP-LW-Cu6"/>

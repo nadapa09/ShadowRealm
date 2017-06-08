@@ -50,6 +50,13 @@ class MainViewController: UITableViewController {
                                           comment: "Description for demo menu option."),
                 icon: "logo_blue", storyboard: "ViewTeam")
             demoFeatures.append(demoFeature)
+            demoFeature = DemoFeature.init(
+                name: NSLocalizedString("My events",
+                                        comment: "Label for demo menu option."),
+                detail: NSLocalizedString("View shadows you made",
+                                          comment: "Description for demo menu option."),
+                icon: "200x200.jpeg.b004bbf18fc74b8590f45c43fcf005e4", storyboard: "TeamEntry")
+            demoFeatures.append(demoFeature)
         }
     }
     

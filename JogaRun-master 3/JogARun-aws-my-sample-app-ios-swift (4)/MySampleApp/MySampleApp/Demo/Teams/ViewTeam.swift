@@ -50,9 +50,20 @@ func goBackHome() {
         cell.role.text = "Role: " + teams[indexPath.row]._role!
         cell.endTime.text = "End Time: " + teams[indexPath.row]._endTime!
         cell.note.text = teams[indexPath.row]._description
+        cell.name.text = "Name: " + teams[indexPath.row]._name!
         
         return cell
     }
+    
+//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+//        
+//            return .delete
+//        
+//    }
+//    
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
+//            
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(teams.count)

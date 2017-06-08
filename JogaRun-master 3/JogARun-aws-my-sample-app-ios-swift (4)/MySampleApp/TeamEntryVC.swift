@@ -12,9 +12,9 @@ import AWSDynamoDB
 
 class TeamEntryVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var noTeamsEnteredLabel: UILabel!
+   
     @IBOutlet weak var teamList: UITableView!
-    var teams: [Teams] = []
+    var teams: [CreatedEvents] = []
     var wait: Bool = true
     fileprivate let homeButton: UIBarButtonItem = UIBarButtonItem(title: nil, style: .done, target: nil, action: nil)
     
@@ -36,12 +36,7 @@ func goBackHome() {
     navigationController?.popToRootViewController(animated: true)
 }
 
-    @IBAction func addTeam(_ sender: UIButton) {
-        
-        let storyboard = UIStoryboard(name: "MakeTeam", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "MakeTeam")
-        navigationController?.pushViewController(controller, animated: true)
-    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -53,11 +48,16 @@ func goBackHome() {
             
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //dateLabel.text = logInfo[indexPath.row]._date!
-        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        let cell = teamList.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MyEventCell
+        cell.location.text = "Location: " + teams[indexPath.row]._location!
+        cell.meetingPlace.text = "Meeting Place: " + teams[indexPath.row]._meetingPlace!
+        cell.start.text = "Start Time: " + teams[indexPath.row]._startTime!
+        cell.role.text = "Role: " + teams[indexPath.row]._role!
+        cell.end.text = "End Time: " + teams[indexPath.row]._endTime!
+        cell.note.text = teams[indexPath.row]._description
+        cell.name.text = "Name: " + teams[indexPath.row]._name!
 
-//        let cell =  tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        cell.textLabel?.text =  String(describing: teams[indexPath.row]._team!)
+
 
         return cell
     }
@@ -67,15 +67,15 @@ func goBackHome() {
         return teams.count
         
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //print(teams[indexPath.row])
-        let storyboard = UIStoryboard(name: "ViewTeam", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "ViewTeam") as! ViewTeam
-        controller.team = teams[indexPath.row]._team!
-        navigationController?.pushViewController(controller, animated: true)
-
-        
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        //print(teams[indexPath.row])
+//        let storyboard = UIStoryboard(name: "ViewTeam", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "ViewTeam") as! ViewTeam
+//       // controller.team = teams[indexPath.row]._team!
+//        navigationController?.pushViewController(controller, animated: true)
+//
+//        
+//    }
 
     func dbQuery() {
         teams.removeAll()
@@ -85,24 +85,15 @@ func goBackHome() {
         scanExpression.expressionAttributeNames = ["#userId": "userId",]
         scanExpression.expressionAttributeValues = [":userId": AWSIdentityManager.default().identityId!,]
         wait = true
-        objectMapper.scan(Teams.self, expression: scanExpression).continueWith(block: { (task:AWSTask<AWSDynamoDBPaginatedOutput>!) -> Any? in
+        objectMapper.scan(CreatedEvents.self, expression: scanExpression).continueWith(block: { (task:AWSTask<AWSDynamoDBPaginatedOutput>!) -> Any? in
             if let error = task.error as? NSError {
                 print("The request failed. Error: \(error)")
             } else if let paginatedOutput = task.result {
-                for team in paginatedOutput.items as! [Teams] {
+                for team in paginatedOutput.items as! [CreatedEvents] {
                     self.teams.append(team)
                 }
-                DispatchQueue.main.async {
-                    self.teamList.reloadData()
-                    if self.teams.count > 0 {
-                        self.noTeamsEnteredLabel.text = ""
-                    }
-                    else {
-                        self.noTeamsEnteredLabel.text = "You have no teams yet!"
-                    }
-                }
-                
                 self.wait = false
+                self.teamList.reloadData()
             }
             return nil
         })

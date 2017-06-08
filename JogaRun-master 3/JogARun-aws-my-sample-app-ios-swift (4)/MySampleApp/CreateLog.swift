@@ -21,6 +21,7 @@ class CreateLog:UIViewController, UINavigationControllerDelegate {
     @IBOutlet weak var availability: UITextField!
     @IBOutlet weak var role: UITextField!
     @IBOutlet weak var descriptionField: UITextView!
+    @IBOutlet weak var nameField: UITextField!
    
     
     fileprivate let homeButton: UIBarButtonItem = UIBarButtonItem(title: nil, style: .done, target: nil, action: nil)
@@ -158,7 +159,7 @@ func goBackHome() {
         itemToCreate._description = descriptionField.text
         itemToCreate._endTime = end.text
         itemToCreate._meetingPlace = meeting.text
-        itemToCreate._name = " "
+        itemToCreate._name = nameField.text
         itemToCreate._remainingCapacity = Double(availability.text!)! as NSNumber?
         itemToCreate._role = role.text
         itemToCreate._startTime = start.text
@@ -168,6 +169,40 @@ func goBackHome() {
        
         
         objectMapper.save(itemToCreate, completionHandler: {(error: Error?) -> Void in
+            if let error = error {
+                print("Amazon DynamoDB Save Error: \(error)")
+                return
+            }
+            print("Item saved.")
+            
+            
+        })
+        
+        let itemToCreate2: CreatedEvents = CreatedEvents()
+        
+        
+        
+        
+        
+        //        if(date.text?.characters.count == 9 || date.text?.characters.count == 8){
+        //            date.text = "0" + date.text!
+        //        }
+        itemToCreate2._location = location.text
+        itemToCreate2._date = date.text
+        itemToCreate2._description = descriptionField.text
+        itemToCreate2._endTime = end.text
+        itemToCreate2._meetingPlace = meeting.text
+        itemToCreate2._name = AWSIdentityManager.default().identityId!
+        itemToCreate2._remainingCapacity = availability.text
+        itemToCreate2._role = role.text
+        itemToCreate2._startTime = start.text
+        itemToCreate2._timestamp = String(describing: Date().timeIntervalSince1970)
+        itemToCreate2._userId = AWSIdentityManager.default().identityId!
+        
+        
+        
+        
+        objectMapper.save(itemToCreate2, completionHandler: {(error: Error?) -> Void in
             if let error = error {
                 print("Amazon DynamoDB Save Error: \(error)")
                 return

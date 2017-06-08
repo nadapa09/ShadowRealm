@@ -65,7 +65,7 @@ class ViewIndivLog: UIViewController, UITableViewDataSource, UITableViewDelegate
         cell.endTime.text = "End Time: " + String(describing: logInfo.logStuff[indexPath.row]._endTime!)
         cell.role.text = "Role: " + String(describing: logInfo.logStuff[indexPath.row]._role!)
         cell.notes.text = String(describing: logInfo.logStuff[indexPath.row]._description!)
-        
+        cell.name.text = "Name: " + String(describing: logInfo.logStuff[indexPath.row]._name!)
         return cell
     }
     
