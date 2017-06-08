@@ -28,11 +28,11 @@ class MainViewController: UITableViewController {
 
         if !(AWSIdentityManager.default().isLoggedIn) {
             let demoFeature = DemoFeature.init(
-                name: NSLocalizedString("Search",
+                name: NSLocalizedString("Calendar",
                                         comment: "Label for demo menu option."),
-                detail: NSLocalizedString("Search for Another User",
+                detail: NSLocalizedString("Organize job shadows",
                                           comment: "Description for demo menu option."),
-                icon: "Search", storyboard: "UserSearch")
+                icon: "download", storyboard: "ViewLog")
             demoFeatures.append(demoFeature)
         }
         else {
@@ -41,14 +41,14 @@ class MainViewController: UITableViewController {
                                         comment: "Label for demo menu option."),
                 detail: NSLocalizedString("Organize job shadows",
                                           comment: "Description for demo menu option."),
-                icon: "Search", storyboard: "ViewLog")
+                icon: "download", storyboard: "ViewLog")
             demoFeatures.append(demoFeature)
             demoFeature = DemoFeature.init(
                 name: NSLocalizedString("My shadows",
                                         comment: "Label for demo menu option."),
                 detail: NSLocalizedString("View your job shadows",
                                           comment: "Description for demo menu option."),
-                icon: "Search", storyboard: "ViewTeam")
+                icon: "logo_blue", storyboard: "ViewTeam")
             demoFeatures.append(demoFeature)
         }
     }
@@ -61,7 +61,7 @@ class MainViewController: UITableViewController {
 
         // Default theme settings.
         navigationController!.navigationBar.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        navigationController!.navigationBar.barTintColor = UIColor(red: 0xF5/255.0, green: 0x85/255.0, blue: 0x35/255.0, alpha: 1.0)
+        navigationController!.navigationBar.barTintColor = UIColor(red: 0/255.0, green: 58/255.0, blue: 111/255.0, alpha: 1.0)
         navigationController!.navigationBar.tintColor = UIColor.white
         
         

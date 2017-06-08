@@ -205,6 +205,9 @@ class ViewIndivLog: UIViewController, UITableViewDataSource, UITableViewDelegate
         if(self.logInfo.logStuff[indexPath.row]._remainingCapacity == 0){
             return
         }
+        if(!(AWSIdentityManager.default().isLoggedIn)){
+            return
+        }
         let alertController = UIAlertController(title: "Sign up for this shadow?", message: "", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
             // ...
@@ -212,6 +215,7 @@ class ViewIndivLog: UIViewController, UITableViewDataSource, UITableViewDelegate
         alertController.addAction(cancelAction)
         
         let OKAction = UIAlertAction(title: "OK", style: .default) { action in
+            
             let objectMapper = AWSDynamoDBObjectMapper.default()
             let item = Events()
             item?._location = self.logInfo.logStuff[indexPath.row]._location

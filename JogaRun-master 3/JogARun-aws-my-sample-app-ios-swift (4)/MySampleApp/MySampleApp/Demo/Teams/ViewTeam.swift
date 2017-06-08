@@ -43,7 +43,7 @@ func goBackHome() {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell =  tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as!UserEventCell
+        let cell =  tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UserEventCell
         cell.location.text = "Location: " + teams[indexPath.row]._location!
         cell.meetingPlace.text = "Meeting Place: " + teams[indexPath.row]._meetingPlace!
         cell.startTime.text = "Start Time: " + teams[indexPath.row]._startTime!
@@ -57,54 +57,6 @@ func goBackHome() {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(teams.count)
         return teams.count
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(teams[indexPath.row])
-//        let storyboard = UIStoryboard(name: "ViewLog", bundle: nil)
-//        let controller = storyboard.instantiateViewController(withIdentifier: "ViewLog") as! ViewLog
-//        if(teams[indexPath.row]._userId! != AWSIdentityManager.default().identityId!){
-//            controller.myLog = false
-//            controller.uId = teams[indexPath.row]._userId!
-//        }
-//        
-//        navigationController?.pushViewController(controller, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAtindexPath: IndexPath){
-        
-    }
-    
-    func tableView(_ tableView: UITableView,
-                   commit editingStyle: UITableViewCellEditingStyle,
-                   forRowAt indexPath: IndexPath){
-//        let alertController = UIAlertController(title: "Remove user from " + self.team + "?", message: "", preferredStyle: .alert)
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
-//            // ...
-//        }
-//        alertController.addAction(cancelAction)
-//        
-//        let OKAction = UIAlertAction(title: "OK", style: .default) { action in
-//            let objectMapper = AWSDynamoDBObjectMapper.default()
-//            let item = Teams()
-//            item?._team = self.team
-//            item?._userId = self.teams[indexPath.row]._userId
-// 
-//            self.wait = true
-//            objectMapper.remove(item!, completionHandler: {(error: Error?) in
-//                                   DispatchQueue.main.async(execute: {
-//                                    
-//                                    })
-//                                })
-//            self.teams.remove(at: indexPath.row)
-//            tableView.reloadData()
-//
-//        }
-//        alertController.addAction(OKAction)
-//        self.present(alertController, animated: true) {
-//            // ...
-//        }
-//        return
     }
     
     func dbQuery() {
@@ -121,11 +73,11 @@ func goBackHome() {
             } else if let paginatedOutput = task.result {
                 for team in paginatedOutput.items as! [SignUp] {
                     self.teams.append(team)
-                    
+                    self.teamList.reloadData()
                 }
                 
                 self.wait = false
-                self.teamList.reloadData()
+                
             }
             return nil
         })

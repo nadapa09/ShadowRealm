@@ -39,6 +39,7 @@ class CreateLog:UIViewController, UINavigationControllerDelegate {
         if(dateString != ""){
             date.text = dateString
         }
+        
         navigationController?.delegate = self
         navigationItem.rightBarButtonItem = homeButton
         navigationItem.rightBarButtonItem!.target = self
@@ -172,8 +173,14 @@ func goBackHome() {
                 return
             }
             print("Item saved.")
+            
+            
         })
-       // logInfo.append(itemToCreate)
+        
+        let alert = UIAlertController(title: "Success", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        logInfo.append(itemToCreate)
         print(logInfo)
 //        updateShoes()
         

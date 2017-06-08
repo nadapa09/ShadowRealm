@@ -27,7 +27,7 @@ class ViewLog: UIViewController, UICollectionViewDataSource, UICollectionViewDel
     var monthArray: [[Events]] = []
     var wait: Bool = true
     var milesArray: [Double] = Array(repeating: 0, count: 32)
-    var timeArray: [Double] = Array(repeating: 0, count: 32)
+    var timeArray: [Int] = Array(repeating: 0, count: 32)
     var uId = AWSIdentityManager.default().identityId!
     var myLog = true
     fileprivate let homeButton: UIBarButtonItem = UIBarButtonItem(title: nil, style: .done, target: nil, action: nil)
@@ -211,7 +211,7 @@ class ViewLog: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell.milesLabel.text = ""
             cell.miles.text = ""
             cell.time.text = ""
-            cell.backgroundColor = #colorLiteral(red: 0.9562007785, green: 0.6269171834, blue: 0.3377318978, alpha: 0.7497844828)
+            cell.backgroundColor = #colorLiteral(red: 0.6994367838, green: 0.2317753732, blue: 0.244805038, alpha: 1)
             cell.alpha = 0.75
             cell.number = -1
             return cell
@@ -222,7 +222,7 @@ class ViewLog: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell.milesLabel.text = ""
             cell.miles.text = ""
             cell.time.text = ""
-            cell.backgroundColor = #colorLiteral(red: 0.9562007785, green: 0.6269171834, blue: 0.3377318978, alpha: 0.7497844828)
+            cell.backgroundColor = #colorLiteral(red: 0.6994367838, green: 0.2317753732, blue: 0.244805038, alpha: 1)
             cell.alpha = 0.75
             cell.number = -1
             return cell
@@ -233,7 +233,7 @@ class ViewLog: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell.milesLabel.text = ""
             cell.miles.text = ""
             cell.time.text = ""
-            cell.backgroundColor = #colorLiteral(red: 0.9562007785, green: 0.6269171834, blue: 0.3377318978, alpha: 0.7497844828)
+            cell.backgroundColor = #colorLiteral(red: 0.6994367838, green: 0.2317753732, blue: 0.244805038, alpha: 1)
             cell.alpha = 0.75
             cell.number = -1
             return cell
@@ -244,7 +244,7 @@ class ViewLog: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             cell.milesLabel.text = ""
             cell.miles.text = ""
             cell.time.text = ""
-            cell.backgroundColor = #colorLiteral(red: 0.9562007785, green: 0.6269171834, blue: 0.3377318978, alpha: 0.7497844828)
+            cell.backgroundColor = #colorLiteral(red: 0.6994367838, green: 0.2317753732, blue: 0.244805038, alpha: 1)
             cell.alpha = 0.75
             cell.number = -1
             return cell
@@ -345,7 +345,9 @@ class ViewLog: UIViewController, UICollectionViewDataSource, UICollectionViewDel
                 
                 return
             }
-            
+            if(log._remainingCapacity == 0){
+                continue
+            }
             monthArray[workoutDay!].append(log)
             
             
@@ -362,7 +364,7 @@ class ViewLog: UIViewController, UICollectionViewDataSource, UICollectionViewDel
             }
             for l in log{
                 //let dist = Double(l._!)
-                let time = Double(l._remainingCapacity!)
+                let time = Int(l._remainingCapacity!)
                 //milesArray[i] += dist
                 timeArray[i] += time
                 
