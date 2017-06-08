@@ -159,7 +159,7 @@ func goBackHome() {
         itemToCreate._description = descriptionField.text
         itemToCreate._endTime = end.text
         itemToCreate._meetingPlace = meeting.text
-        itemToCreate._name = nameField.text
+        itemToCreate._name = " "
         itemToCreate._remainingCapacity = Double(availability.text!)! as NSNumber?
         itemToCreate._role = role.text
         itemToCreate._startTime = start.text

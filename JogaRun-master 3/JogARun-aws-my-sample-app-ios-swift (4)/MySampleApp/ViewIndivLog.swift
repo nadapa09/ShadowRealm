@@ -47,6 +47,9 @@ class ViewIndivLog: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     @IBAction func addLog(_ sender: UIButton) {
+        if(!(AWSIdentityManager.default().isLoggedIn)){
+            return
+        }
         let loginStoryboard = UIStoryboard(name: "CreateLog", bundle: nil)
         let loginController = loginStoryboard.instantiateViewController(withIdentifier: "CreateLog") as! CreateLog
         loginController.logInfo = logInfo.logStuff
