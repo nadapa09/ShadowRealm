@@ -158,7 +158,7 @@ func goBackHome() {
         itemToCreate._endTime = end.text
         itemToCreate._meetingPlace = meeting.text
         itemToCreate._name = " "
-        itemToCreate._remainingCapacity = 1
+        itemToCreate._remainingCapacity = Double(availability.text!)! as NSNumber?
         itemToCreate._role = role.text
         itemToCreate._startTime = start.text
         itemToCreate._timestamp = NSNumber(value: Date().timeIntervalSince1970)

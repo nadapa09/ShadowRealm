@@ -223,13 +223,7 @@ class ViewIndivLog: UIViewController, UITableViewDataSource, UITableViewDelegate
                 })
             })
             
-            
-            
             let itemToCreate: Events = Events()
-            
-            
-            
-            
             
             //        if(date.text?.characters.count == 9 || date.text?.characters.count == 8){
             //            date.text = "0" + date.text!
@@ -258,6 +252,36 @@ class ViewIndivLog: UIViewController, UITableViewDataSource, UITableViewDelegate
                 print("Item saved.")
                 
             })
+            
+            let itemToCreate2: SignUp = SignUp()
+            
+            //        if(date.text?.characters.count == 9 || date.text?.characters.count == 8){
+            //            date.text = "0" + date.text!
+            //        }
+            itemToCreate2._location = self.logInfo.logStuff[indexPath.row]._location
+            itemToCreate2._date = self.logInfo.logStuff[indexPath.row]._date
+            itemToCreate2._description = self.logInfo.logStuff[indexPath.row]._description
+            itemToCreate2._endTime = self.logInfo.logStuff[indexPath.row]._endTime
+            itemToCreate2._meetingPlace = self.logInfo.logStuff[indexPath.row]._meetingPlace
+            itemToCreate2._name = self.logInfo.logStuff[indexPath.row]._name
+            itemToCreate2._remainingSpots = "0"
+            itemToCreate2._role = self.logInfo.logStuff[indexPath.row]._role
+            itemToCreate2._startTime = self.logInfo.logStuff[indexPath.row]._startTime
+            itemToCreate2._timestamp = String(describing:Date().timeIntervalSince1970)
+            itemToCreate2._userId = AWSIdentityManager.default().identityId!
+            
+            
+            
+            
+            objectMapper.save(itemToCreate2, completionHandler: {(error: Error?) -> Void in
+                if let error = error {
+                    print("Amazon DynamoDB Save Error: \(error)")
+                    return
+                }
+                print("Item saved.")
+                
+            })
+
             
             
             
