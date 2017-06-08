@@ -36,9 +36,20 @@ class MainViewController: UITableViewController {
             demoFeatures.append(demoFeature)
         }
         else {
-            let storyboard = UIStoryboard(name: "ViewLog", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "ViewLog")
-            navigationController?.pushViewController(controller, animated: true)
+            var demoFeature = DemoFeature.init(
+                name: NSLocalizedString("Calendar",
+                                        comment: "Label for demo menu option."),
+                detail: NSLocalizedString("Organize job shadows",
+                                          comment: "Description for demo menu option."),
+                icon: "Search", storyboard: "ViewLog")
+            demoFeatures.append(demoFeature)
+            demoFeature = DemoFeature.init(
+                name: NSLocalizedString("My shadows",
+                                        comment: "Label for demo menu option."),
+                detail: NSLocalizedString("View your job shadows",
+                                          comment: "Description for demo menu option."),
+                icon: "Search", storyboard: "ViewTeam")
+            demoFeatures.append(demoFeature)
         }
     }
     
@@ -47,8 +58,7 @@ class MainViewController: UITableViewController {
 
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
         
-        
-        
+
         // Default theme settings.
         navigationController!.navigationBar.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         navigationController!.navigationBar.barTintColor = UIColor(red: 0xF5/255.0, green: 0x85/255.0, blue: 0x35/255.0, alpha: 1.0)

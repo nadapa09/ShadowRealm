@@ -1,5 +1,5 @@
 //
-//  Registrations.swift
+//  SignUp.swift
 //  MySampleApp
 //
 //
@@ -15,23 +15,23 @@ import Foundation
 import UIKit
 import AWSDynamoDB
 
-class Registrations: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
+class SignUp: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     
     var _userId: String?
-    var _timestamp: NSNumber?
+    var _timestamp: String?
     var _date: String?
     var _description: String?
     var _endTime: String?
     var _location: String?
     var _meetingPlace: String?
     var _name: String?
-    var _remainingCapacity: String?
+    var _remainingSpots: String?
     var _role: String?
     var _startTime: String?
     
     class func dynamoDBTableName() -> String {
         
-        return "jogarun-mobilehub-2062646821-Registrations"
+        return "jogarun-mobilehub-2062646821-SignUp"
     }
     
     class func hashKeyAttribute() -> String {
@@ -47,14 +47,14 @@ class Registrations: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     override class func jsonKeyPathsByPropertyKey() -> [AnyHashable: Any] {
         return [
             "_userId" : "userId",
-            "_timestamp" : "Timestamp",
+            "_timestamp" : "timestamp",
             "_date" : "date",
             "_description" : "description",
             "_endTime" : "endTime",
             "_location" : "location",
             "_meetingPlace" : "meetingPlace",
             "_name" : "name",
-            "_remainingCapacity" : "remainingCapacity",
+            "_remainingSpots" : "remainingSpots",
             "_role" : "role",
             "_startTime" : "startTime",
         ]
